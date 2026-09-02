@@ -42,3 +42,25 @@ test('server components that read demo availability seed first', () => {
     assert.match(source, /ensureDemoSeeded\(\)/, `${page} must await ensureDemoSeeded()`);
   }
 });
+
+test('no page or layout reads tenant data during server render', () => {
+  // Hosts that split pages and API routes into separate functions give each its own
+  // storage, so a record created through the API is invisible to a page that queries the
+  // database directly. Every screen must go through the API instead.
+  const offenders = [];
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) { if (entry.name !== 'api') walk(full); continue; }
+      if (!/^(page|layout)\.jsx$/.test(entry.name)) continue;
+      const source = fs.readFileSync(full, 'utf8');
+      // demo.js and demo-seed.js are allowed: the demo workspace is seeded identically
+      // in every function, so reading it during render is consistent everywhere.
+      if (/from '@\/lib\/(db|envelopes|audit|storage)\.js'/.test(source)) {
+        offenders.push(path.relative(process.cwd(), full));
+      }
+    }
+  };
+  walk(APP_DIR);
+  assert.deepEqual(offenders, [], `pages querying the database directly:\n  ${offenders.join('\n  ')}`);
+});

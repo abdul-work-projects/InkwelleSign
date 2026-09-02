@@ -71,9 +71,13 @@ that provides no writable disk. The database and documents go to the instance's 
 directory, and `instrumentation.js` seeds the sample workspace on each cold start, so
 every instance serves a populated app rather than an empty one.
 
-On Vercel each route becomes its own function with its own temporary directory, so
-"one instance" is not even one deployment — pages and API routes do not share storage.
-Demo mode is built for that:
+On Vercel, pages and API routes are separate functions with separate temporary
+directories — measured against the deployment, all API routes share one, and pages have
+their own. So "one instance" is not even one deployment. Demo mode is built for that:
+
+- No page or layout queries the database during server render; every screen loads through
+  the API, so records a visitor creates are read back from the same storage that wrote
+  them. `tests/routes.test.mjs` fails the build if a page starts reading directly.
 
 - Seeded ids come from a deterministic counter, so every function builds an identical
   workspace and a link produced by one resolves in another
