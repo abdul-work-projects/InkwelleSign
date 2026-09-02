@@ -87,8 +87,10 @@ What this means in practice:
   audit trail, open a signing link, download the executed PDF and certificate.
 - Anything a visitor *creates* survives only while that function instance stays warm. A
   cold start, a redeploy, or a request served by another function returns the sample data.
-- Every page carries a banner saying so, and the passwordless **Test sign in** button is
-  enabled, since an ephemeral instance has no lasting accounts.
+- The passwordless **Test sign in** button is enabled, since an ephemeral instance has no
+  lasting accounts.
+- Nothing in the interface announces that the data is temporary, so whoever shares the
+  link is responsible for saying so.
 - Signing links use `VERCEL_PROJECT_PRODUCTION_URL` when `APP_URL` is unset, so they
   resolve to the deployment rather than to localhost.
 

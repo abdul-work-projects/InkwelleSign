@@ -157,9 +157,8 @@ anyone holding the secret. `DEMO_SECRET` also has a published default.
 
 This is confined to demo mode: with `DEMO_MODE` unset, sessions are database-backed and
 signing tokens are 256 bits of randomness, exactly as before. Demo mode exists so a
-reviewer can click through a hosted URL, and every page states that the data is sample
-data. It must never carry real documents — which is also why demo instances discard
-everything on restart.
+reviewer can click through a hosted URL. It must never carry real documents — which is
+also why demo instances discard everything on restart.
 
 ## 4. Trust boundaries
 
