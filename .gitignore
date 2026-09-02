@@ -1,0 +1,8 @@
+node_modules
+.next
+storage/*.db
+storage/*.db-*
+storage/blobs
+.env
+.env.local
+*.log

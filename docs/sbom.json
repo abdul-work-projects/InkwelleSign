@@ -1,0 +1,2400 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:160dff57-bf0c-42e0-8d7c-016a4d479b1b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-09-02T10:33:09.629Z",
+    "tools": [
+      {
+        "name": "inkwell-sbom",
+        "version": "1.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "inkwell-esign@0.1.0",
+      "name": "inkwell-esign",
+      "version": "0.1.0",
+      "description": "Inkwell eSign - independently developed electronic signature platform"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@alloc/quick-lru@5.3.0",
+      "purl": "pkg:npm/@alloc/quick-lru@5.3.0",
+      "name": "@alloc/quick-lru",
+      "version": "5.3.0",
+      "description": "Simple “Least Recently Used” (LRU) cache",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/aleclarson/quick-lru"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@emnapi/runtime@1.11.3",
+      "purl": "pkg:npm/@emnapi/runtime@1.11.3",
+      "name": "@emnapi/runtime",
+      "version": "1.11.3",
+      "description": "emnapi runtime",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/toyobayashi/emnapi"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@jridgewell/gen-mapping@0.3.13",
+      "purl": "pkg:npm/@jridgewell/gen-mapping@0.3.13",
+      "name": "@jridgewell/gen-mapping",
+      "version": "0.3.13",
+      "description": "Generate source maps",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jridgewell/sourcemaps"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@jridgewell/resolve-uri@3.1.2",
+      "purl": "pkg:npm/@jridgewell/resolve-uri@3.1.2",
+      "name": "@jridgewell/resolve-uri",
+      "version": "3.1.2",
+      "description": "Resolve a URI relative to an optional base URI",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jridgewell/resolve-uri"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@jridgewell/sourcemap-codec@1.6.0",
+      "purl": "pkg:npm/@jridgewell/sourcemap-codec@1.6.0",
+      "name": "@jridgewell/sourcemap-codec",
+      "version": "1.6.0",
+      "description": "Encode/decode sourcemap mappings",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jridgewell/sourcemaps"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@jridgewell/trace-mapping@0.3.31",
+      "purl": "pkg:npm/@jridgewell/trace-mapping@0.3.31",
+      "name": "@jridgewell/trace-mapping",
+      "version": "0.3.31",
+      "description": "Trace the original position through a source map",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jridgewell/sourcemaps"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@napi-rs/canvas@1.0.8",
+      "purl": "pkg:npm/@napi-rs/canvas@1.0.8",
+      "name": "@napi-rs/canvas",
+      "version": "1.0.8",
+      "description": "Canvas for Node.js with skia backend",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Brooooooklyn/canvas"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@napi-rs/canvas-darwin-arm64@1.0.8",
+      "purl": "pkg:npm/@napi-rs/canvas-darwin-arm64@1.0.8",
+      "name": "@napi-rs/canvas-darwin-arm64",
+      "version": "1.0.8",
+      "description": "Canvas for Node.js with skia backend",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Brooooooklyn/canvas"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@next/env@15.5.25",
+      "purl": "pkg:npm/@next/env@15.5.25",
+      "name": "@next/env",
+      "version": "15.5.25",
+      "description": "Next.js dotenv file loading",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vercel/next.js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@next/swc-darwin-arm64@15.5.25",
+      "purl": "pkg:npm/@next/swc-darwin-arm64@15.5.25",
+      "name": "@next/swc-darwin-arm64",
+      "version": "15.5.25",
+      "description": "",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vercel/next.js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@nodelib/fs.scandir@2.1.5",
+      "purl": "pkg:npm/@nodelib/fs.scandir@2.1.5",
+      "name": "@nodelib/fs.scandir",
+      "version": "2.1.5",
+      "description": "List files and directories inside the specified directory",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.scandir"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@nodelib/fs.stat@2.0.5",
+      "purl": "pkg:npm/@nodelib/fs.stat@2.0.5",
+      "name": "@nodelib/fs.stat",
+      "version": "2.0.5",
+      "description": "Get the status of a file with some features",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.stat"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@nodelib/fs.walk@1.2.8",
+      "purl": "pkg:npm/@nodelib/fs.walk@1.2.8",
+      "name": "@nodelib/fs.walk",
+      "version": "1.2.8",
+      "description": "A library for efficiently walking a directory recursively",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.walk"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@pdf-lib/standard-fonts@1.0.0",
+      "purl": "pkg:npm/@pdf-lib/standard-fonts@1.0.0",
+      "name": "@pdf-lib/standard-fonts",
+      "version": "1.0.0",
+      "description": "Metrics for the Standard 14 PDF fonts and their encodings",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Hopding/standard-fonts"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@pdf-lib/upng@1.0.1",
+      "purl": "pkg:npm/@pdf-lib/upng@1.0.1",
+      "name": "@pdf-lib/upng",
+      "version": "1.0.1",
+      "description": "Small, fast and advanced PNG / APNG encoder and decoder",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Hopding/upng"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/@swc/helpers@0.5.15",
+      "purl": "pkg:npm/@swc/helpers@0.5.15",
+      "name": "@swc/helpers",
+      "version": "0.5.15",
+      "description": "External helpers for the swc project.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/swc-project/swc"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/any-promise@1.3.0",
+      "purl": "pkg:npm/any-promise@1.3.0",
+      "name": "any-promise",
+      "version": "1.3.0",
+      "description": "Resolve any installed ES6 compatible promise",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/kevinbeaty/any-promise"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/anymatch@3.1.3",
+      "purl": "pkg:npm/anymatch@3.1.3",
+      "name": "anymatch",
+      "version": "3.1.3",
+      "description": "Matches strings against configurable strings, globs, regular expressions, and/or functions",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/micromatch/anymatch"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/arg@5.0.2",
+      "purl": "pkg:npm/arg@5.0.2",
+      "name": "arg",
+      "version": "5.0.2",
+      "description": "Unopinionated, no-frills CLI argument parser",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "vercel/arg"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/autoprefixer@10.5.4",
+      "purl": "pkg:npm/autoprefixer@10.5.4",
+      "name": "autoprefixer",
+      "version": "10.5.4",
+      "description": "Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "postcss/autoprefixer"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/baseline-browser-mapping@2.11.20",
+      "purl": "pkg:npm/baseline-browser-mapping@2.11.20",
+      "name": "baseline-browser-mapping",
+      "version": "2.11.20",
+      "description": "A library for obtaining browser versions with their maximum supported Baseline feature set and Widely Available status.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/web-platform-dx/baseline-browser-mapping"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/better-sqlite3@13.0.3",
+      "purl": "pkg:npm/better-sqlite3@13.0.3",
+      "name": "better-sqlite3",
+      "version": "13.0.3",
+      "description": "The fastest and simplest library for SQLite in Node.js.",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/WiseLibs/better-sqlite3"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/binary-extensions@2.3.0",
+      "purl": "pkg:npm/binary-extensions@2.3.0",
+      "name": "binary-extensions",
+      "version": "2.3.0",
+      "description": "List of binary file extensions",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "sindresorhus/binary-extensions"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/braces@3.0.3",
+      "purl": "pkg:npm/braces@3.0.3",
+      "name": "braces",
+      "version": "3.0.3",
+      "description": "Bash-like brace expansion, implemented in JavaScript. Safer than other brace expansion libs, with complete support for the Bash 4.3 braces s",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "micromatch/braces"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/browserslist@4.28.8",
+      "purl": "pkg:npm/browserslist@4.28.8",
+      "name": "browserslist",
+      "version": "4.28.8",
+      "description": "Share target browsers between different front-end tools, like Autoprefixer, Stylelint and babel-env-preset",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "browserslist/browserslist"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/camelcase-css@2.0.1",
+      "purl": "pkg:npm/camelcase-css@2.0.1",
+      "name": "camelcase-css",
+      "version": "2.0.1",
+      "description": "Convert a kebab-cased CSS property into a camelCased DOM property.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "stevenvachon/camelcase-css"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/caniuse-lite@1.0.30001810",
+      "purl": "pkg:npm/caniuse-lite@1.0.30001810",
+      "name": "caniuse-lite",
+      "version": "1.0.30001810",
+      "description": "A smaller version of caniuse-db, with only the essentials!",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "CC-BY-4.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "browserslist/caniuse-lite"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/chokidar@3.6.0",
+      "purl": "pkg:npm/chokidar@3.6.0",
+      "name": "chokidar",
+      "version": "3.6.0",
+      "description": "Minimal and efficient cross-platform file watching library",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/paulmillr/chokidar"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/client-only@0.0.1",
+      "purl": "pkg:npm/client-only@0.0.1",
+      "name": "client-only",
+      "version": "0.0.1",
+      "description": "This is a marker package to indicate that a module can only be used in Client Components.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://reactjs.org/"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/clsx@2.1.1",
+      "purl": "pkg:npm/clsx@2.1.1",
+      "name": "clsx",
+      "version": "2.1.1",
+      "description": "A tiny (239B) utility for constructing className strings conditionally.",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "lukeed/clsx"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/commander@4.1.1",
+      "purl": "pkg:npm/commander@4.1.1",
+      "name": "commander",
+      "version": "4.1.1",
+      "description": "the complete solution for node.js command-line programs",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/tj/commander.js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/cssesc@3.0.0",
+      "purl": "pkg:npm/cssesc@3.0.0",
+      "name": "cssesc",
+      "version": "3.0.0",
+      "description": "A JavaScript library for escaping CSS strings and identifiers while generating the shortest possible ASCII-only output.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/mathiasbynens/cssesc"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/detect-libc@2.1.2",
+      "purl": "pkg:npm/detect-libc@2.1.2",
+      "name": "detect-libc",
+      "version": "2.1.2",
+      "description": "Node.js module to detect the C standard library (libc) implementation family and version",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/lovell/detect-libc"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/didyoumean@1.2.2",
+      "purl": "pkg:npm/didyoumean@1.2.2",
+      "name": "didyoumean",
+      "version": "1.2.2",
+      "description": "Match human-quality input to potential matches by edit distance.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dcporter/didyoumean.js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/dlv@1.1.3",
+      "purl": "pkg:npm/dlv@1.1.3",
+      "name": "dlv",
+      "version": "1.1.3",
+      "description": "Safely get a dot-notated property within an object.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "developit/dlv"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/electron-to-chromium@1.5.420",
+      "purl": "pkg:npm/electron-to-chromium@1.5.420",
+      "name": "electron-to-chromium",
+      "version": "1.5.420",
+      "description": "Provides a list of electron-to-chromium version mappings",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Kilian/electron-to-chromium"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/es-errors@1.3.0",
+      "purl": "pkg:npm/es-errors@1.3.0",
+      "name": "es-errors",
+      "version": "1.3.0",
+      "description": "A simple cache for a few of the JS Error constructors.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ljharb/es-errors"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/escalade@3.2.0",
+      "purl": "pkg:npm/escalade@3.2.0",
+      "name": "escalade",
+      "version": "3.2.0",
+      "description": "A tiny (183B to 210B) and fast utility to ascend parent directories",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "lukeed/escalade"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/fast-glob@3.3.3",
+      "purl": "pkg:npm/fast-glob@3.3.3",
+      "name": "fast-glob",
+      "version": "3.3.3",
+      "description": "It's a very fast and efficient glob library for Node.js",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "mrmlnc/fast-glob"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/fastq@1.20.3",
+      "purl": "pkg:npm/fastq@1.20.3",
+      "name": "fastq",
+      "version": "1.20.3",
+      "description": "Fast, in memory work queue",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/mcollina/fastq"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/fdir@6.5.0",
+      "purl": "pkg:npm/fdir@6.5.0",
+      "name": "fdir",
+      "version": "6.5.0",
+      "description": "The fastest directory crawler & globbing alternative to glob, fast-glob, & tiny-glob. Crawls 1m files in < 1s",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/thecodrr/fdir"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/fill-range@7.1.1",
+      "purl": "pkg:npm/fill-range@7.1.1",
+      "name": "fill-range",
+      "version": "7.1.1",
+      "description": "Fill in a range of numbers or letters, optionally passing an increment or `step` to use, or create a regex-compatible range with `options.to",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "jonschlinkert/fill-range"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/fraction.js@5.3.4",
+      "purl": "pkg:npm/fraction.js@5.3.4",
+      "name": "fraction.js",
+      "version": "5.3.4",
+      "description": "The RAW rational numbers library",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "ssh://git@github.com/rawify/Fraction.js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/function-bind@1.1.2",
+      "purl": "pkg:npm/function-bind@1.1.2",
+      "name": "function-bind",
+      "version": "1.1.2",
+      "description": "Implementation of Function.prototype.bind",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Raynos/function-bind"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/glob-parent@5.1.2",
+      "purl": "pkg:npm/glob-parent@5.1.2",
+      "name": "glob-parent",
+      "version": "5.1.2",
+      "description": "Extract the non-magic parent path from a glob string.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "gulpjs/glob-parent"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/glob-parent@6.0.2",
+      "purl": "pkg:npm/glob-parent@6.0.2",
+      "name": "glob-parent",
+      "version": "6.0.2",
+      "description": "Extract the non-magic parent path from a glob string.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "gulpjs/glob-parent"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/hasown@2.0.4",
+      "purl": "pkg:npm/hasown@2.0.4",
+      "name": "hasown",
+      "version": "2.0.4",
+      "description": "A robust, ES3 compatible, \"has own property\" predicate.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/inspect-js/hasOwn"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/is-binary-path@2.1.0",
+      "purl": "pkg:npm/is-binary-path@2.1.0",
+      "name": "is-binary-path",
+      "version": "2.1.0",
+      "description": "Check if a file path is a binary file",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "sindresorhus/is-binary-path"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/is-core-module@2.16.2",
+      "purl": "pkg:npm/is-core-module@2.16.2",
+      "name": "is-core-module",
+      "version": "2.16.2",
+      "description": "Is this specifier a node.js core module?",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/inspect-js/is-core-module"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/is-extglob@2.1.1",
+      "purl": "pkg:npm/is-extglob@2.1.1",
+      "name": "is-extglob",
+      "version": "2.1.1",
+      "description": "Returns true if a string has an extglob.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "jonschlinkert/is-extglob"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/is-glob@4.0.3",
+      "purl": "pkg:npm/is-glob@4.0.3",
+      "name": "is-glob",
+      "version": "4.0.3",
+      "description": "Returns `true` if the given string looks like a glob pattern or an extglob pattern. This makes it easy to create code that only uses externa",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "micromatch/is-glob"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/is-number@7.0.0",
+      "purl": "pkg:npm/is-number@7.0.0",
+      "name": "is-number",
+      "version": "7.0.0",
+      "description": "Returns true if a number or string value is a finite number. Useful for regex matches, parsing, user input, etc.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "jonschlinkert/is-number"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/jiti@1.21.7",
+      "purl": "pkg:npm/jiti@1.21.7",
+      "name": "jiti",
+      "version": "1.21.7",
+      "description": "Runtime typescript and ESM support for Node.js",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "unjs/jiti"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/lilconfig@3.1.3",
+      "purl": "pkg:npm/lilconfig@3.1.3",
+      "name": "lilconfig",
+      "version": "3.1.3",
+      "description": "A zero-dependency alternative to cosmiconfig",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/antonk52/lilconfig"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/lines-and-columns@1.2.4",
+      "purl": "pkg:npm/lines-and-columns@1.2.4",
+      "name": "lines-and-columns",
+      "version": "1.2.4",
+      "description": "Maps lines and columns to character offsets and back.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/eventualbuddha/lines-and-columns"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/lucide-react@1.39.0",
+      "purl": "pkg:npm/lucide-react@1.39.0",
+      "name": "lucide-react",
+      "version": "1.39.0",
+      "description": "A Lucide icon library package for React applications.",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/lucide-icons/lucide"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/merge2@1.4.1",
+      "purl": "pkg:npm/merge2@1.4.1",
+      "name": "merge2",
+      "version": "1.4.1",
+      "description": "Merge multiple streams into one stream in sequence or parallel.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "git@github.com:teambition/merge2"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/micromatch@4.0.8",
+      "purl": "pkg:npm/micromatch@4.0.8",
+      "name": "micromatch",
+      "version": "4.0.8",
+      "description": "Glob matching for javascript/node.js. A replacement and faster alternative to minimatch and multimatch.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "micromatch/micromatch"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/mz@2.7.0",
+      "purl": "pkg:npm/mz@2.7.0",
+      "name": "mz",
+      "version": "2.7.0",
+      "description": "modernize node.js to current ECMAScript standards",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "normalize/mz"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/nanoid@3.3.18",
+      "purl": "pkg:npm/nanoid@3.3.18",
+      "name": "nanoid",
+      "version": "3.3.18",
+      "description": "A tiny (116 bytes), secure URL-friendly unique string ID generator",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "ai/nanoid"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/next@15.5.25",
+      "purl": "pkg:npm/next@15.5.25",
+      "name": "next",
+      "version": "15.5.25",
+      "description": "The React Framework",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "vercel/next.js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/node-addon-api@8.9.2",
+      "purl": "pkg:npm/node-addon-api@8.9.2",
+      "name": "node-addon-api",
+      "version": "8.9.2",
+      "description": "Node.js API (Node-API)",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/nodejs/node-addon-api"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/node-releases@2.0.54",
+      "purl": "pkg:npm/node-releases@2.0.54",
+      "name": "node-releases",
+      "version": "2.0.54",
+      "description": "Node.js releases data",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/chicoxyzzy/node-releases"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/nodemailer@9.1.1",
+      "purl": "pkg:npm/nodemailer@9.1.1",
+      "name": "nodemailer",
+      "version": "9.1.1",
+      "description": "Easy as cake e-mail sending from your Node.js applications",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/nodemailer/nodemailer"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/normalize-path@3.0.0",
+      "purl": "pkg:npm/normalize-path@3.0.0",
+      "name": "normalize-path",
+      "version": "3.0.0",
+      "description": "Normalize slashes in a file path to be posix/unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trai",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "jonschlinkert/normalize-path"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/object-assign@4.1.1",
+      "purl": "pkg:npm/object-assign@4.1.1",
+      "name": "object-assign",
+      "version": "4.1.1",
+      "description": "ES2015 `Object.assign()` ponyfill",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "sindresorhus/object-assign"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/object-hash@3.0.0",
+      "purl": "pkg:npm/object-hash@3.0.0",
+      "name": "object-hash",
+      "version": "3.0.0",
+      "description": "Generate hashes from javascript objects in node and the browser.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/puleos/object-hash"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/pako@1.0.11",
+      "purl": "pkg:npm/pako@1.0.11",
+      "name": "pako",
+      "version": "1.0.11",
+      "description": "zlib port to javascript - fast, modularized, with browser support",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "(MIT AND Zlib)"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "nodeca/pako"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/path-parse@1.0.7",
+      "purl": "pkg:npm/path-parse@1.0.7",
+      "name": "path-parse",
+      "version": "1.0.7",
+      "description": "Node.js path.parse() ponyfill",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jbgutierrez/path-parse"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/pdf-lib@1.17.1",
+      "purl": "pkg:npm/pdf-lib@1.17.1",
+      "name": "pdf-lib",
+      "version": "1.17.1",
+      "description": "Create and modify PDF files with JavaScript",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Hopding/pdf-lib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/pdfjs-dist@6.3.289",
+      "purl": "pkg:npm/pdfjs-dist@6.3.289",
+      "name": "pdfjs-dist",
+      "version": "6.3.289",
+      "description": "Generic build of Mozilla's PDF.js library.",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/mozilla/pdf.js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/picocolors@1.1.1",
+      "purl": "pkg:npm/picocolors@1.1.1",
+      "name": "picocolors",
+      "version": "1.1.1",
+      "description": "The tiniest and the fastest library for terminal output formatting with ANSI colors",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "alexeyraspopov/picocolors"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/picomatch@2.3.2",
+      "purl": "pkg:npm/picomatch@2.3.2",
+      "name": "picomatch",
+      "version": "2.3.2",
+      "description": "Blazing fast and accurate glob matcher written in JavaScript, with no dependencies and full support for standard and extended Bash glob feat",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "micromatch/picomatch"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/picomatch@4.0.7",
+      "purl": "pkg:npm/picomatch@4.0.7",
+      "name": "picomatch",
+      "version": "4.0.7",
+      "description": "Blazing fast and accurate glob matcher written in JavaScript, with no dependencies and full support for standard and extended Bash glob feat",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "micromatch/picomatch"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/pirates@4.0.7",
+      "purl": "pkg:npm/pirates@4.0.7",
+      "name": "pirates",
+      "version": "4.0.7",
+      "description": "Properly hijack require, i.e., properly define require hooks and customizations",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/danez/pirates"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/postcss@8.4.31",
+      "purl": "pkg:npm/postcss@8.4.31",
+      "name": "postcss",
+      "version": "8.4.31",
+      "description": "Tool for transforming styles with JS plugins",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "postcss/postcss"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/postcss@8.5.26",
+      "purl": "pkg:npm/postcss@8.5.26",
+      "name": "postcss",
+      "version": "8.5.26",
+      "description": "Tool for transforming styles with JS plugins",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "postcss/postcss"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/postcss-import@15.1.0",
+      "purl": "pkg:npm/postcss-import@15.1.0",
+      "name": "postcss-import",
+      "version": "15.1.0",
+      "description": "PostCSS plugin to import CSS files",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/postcss/postcss-import"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/postcss-js@4.1.0",
+      "purl": "pkg:npm/postcss-js@4.1.0",
+      "name": "postcss-js",
+      "version": "4.1.0",
+      "description": "PostCSS for CSS-in-JS and styles in JS objects",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "postcss/postcss-js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/postcss-load-config@6.0.1",
+      "purl": "pkg:npm/postcss-load-config@6.0.1",
+      "name": "postcss-load-config",
+      "version": "6.0.1",
+      "description": "Autoload Config for PostCSS",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "postcss/postcss-load-config"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/postcss-nested@6.2.0",
+      "purl": "pkg:npm/postcss-nested@6.2.0",
+      "name": "postcss-nested",
+      "version": "6.2.0",
+      "description": "PostCSS plugin to unwrap nested rules like how Sass does it",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "postcss/postcss-nested"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/postcss-selector-parser@6.1.4",
+      "purl": "pkg:npm/postcss-selector-parser@6.1.4",
+      "name": "postcss-selector-parser",
+      "version": "6.1.4",
+      "description": "Selector parser with built in methods for working with selector strings.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/postcss/postcss-selector-parser"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/postcss-value-parser@4.2.0",
+      "purl": "pkg:npm/postcss-value-parser@4.2.0",
+      "name": "postcss-value-parser",
+      "version": "4.2.0",
+      "description": "Transforms css values and at-rule params into the tree",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/TrySound/postcss-value-parser"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/queue-microtask@1.2.3",
+      "purl": "pkg:npm/queue-microtask@1.2.3",
+      "name": "queue-microtask",
+      "version": "1.2.3",
+      "description": "fast, tiny `queueMicrotask` shim for modern engines",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/feross/queue-microtask"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/react@19.2.8",
+      "purl": "pkg:npm/react@19.2.8",
+      "name": "react",
+      "version": "19.2.8",
+      "description": "React is a JavaScript library for building user interfaces.",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/react/react"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/react-dom@19.2.8",
+      "purl": "pkg:npm/react-dom@19.2.8",
+      "name": "react-dom",
+      "version": "19.2.8",
+      "description": "React package for working with the DOM.",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/react/react"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/read-cache@1.0.2",
+      "purl": "pkg:npm/read-cache@1.0.2",
+      "name": "read-cache",
+      "version": "1.0.2",
+      "description": "Reads and caches the entire contents of a file until it is modified",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/TrySound/read-cache"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/readdirp@3.6.0",
+      "purl": "pkg:npm/readdirp@3.6.0",
+      "name": "readdirp",
+      "version": "3.6.0",
+      "description": "Recursive version of fs.readdir with streaming API.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/paulmillr/readdirp"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/resolve@1.22.12",
+      "purl": "pkg:npm/resolve@1.22.12",
+      "name": "resolve",
+      "version": "1.22.12",
+      "description": "resolve like require.resolve() on behalf of files asynchronously and synchronously",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "ssh://github.com/browserify/resolve"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/reusify@1.1.0",
+      "purl": "pkg:npm/reusify@1.1.0",
+      "name": "reusify",
+      "version": "1.1.0",
+      "description": "Reuse objects and functions with style",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/mcollina/reusify"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/run-parallel@1.2.0",
+      "purl": "pkg:npm/run-parallel@1.2.0",
+      "name": "run-parallel",
+      "version": "1.2.0",
+      "description": "Run an array of functions in parallel",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/feross/run-parallel"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/scheduler@0.27.0",
+      "purl": "pkg:npm/scheduler@0.27.0",
+      "name": "scheduler",
+      "version": "0.27.0",
+      "description": "Cooperative scheduler for the browser environment.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/facebook/react"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/semver@7.8.5",
+      "purl": "pkg:npm/semver@7.8.5",
+      "name": "semver",
+      "version": "7.8.5",
+      "description": "The semantic version parser used by npm.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/npm/node-semver"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/source-map-js@1.2.1",
+      "purl": "pkg:npm/source-map-js@1.2.1",
+      "name": "source-map-js",
+      "version": "1.2.1",
+      "description": "Generates and consumes source maps",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "7rulnik/source-map-js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/styled-jsx@5.1.6",
+      "purl": "pkg:npm/styled-jsx@5.1.6",
+      "name": "styled-jsx",
+      "version": "5.1.6",
+      "description": "Full CSS support for JSX without compromises",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "vercel/styled-jsx"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/sucrase@3.35.1",
+      "purl": "pkg:npm/sucrase@3.35.1",
+      "name": "sucrase",
+      "version": "3.35.1",
+      "description": "Super-fast alternative to Babel for when you can target modern JS runtimes",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/alangpierce/sucrase"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/supports-preserve-symlinks-flag@1.0.0",
+      "purl": "pkg:npm/supports-preserve-symlinks-flag@1.0.0",
+      "name": "supports-preserve-symlinks-flag",
+      "version": "1.0.0",
+      "description": "Determine if the current node version supports the `--preserve-symlinks` flag.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/inspect-js/node-supports-preserve-symlinks-flag"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/tailwindcss@3.4.19",
+      "purl": "pkg:npm/tailwindcss@3.4.19",
+      "name": "tailwindcss",
+      "version": "3.4.19",
+      "description": "A utility-first CSS framework for rapidly building custom user interfaces.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/tailwindlabs/tailwindcss.git#v3"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/thenify@3.3.1",
+      "purl": "pkg:npm/thenify@3.3.1",
+      "name": "thenify",
+      "version": "3.3.1",
+      "description": "Promisify a callback-based function",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "thenables/thenify"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/thenify-all@1.6.0",
+      "purl": "pkg:npm/thenify-all@1.6.0",
+      "name": "thenify-all",
+      "version": "1.6.0",
+      "description": "Promisifies all the selected functions in an object",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "thenables/thenify-all"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/tinyglobby@0.2.17",
+      "purl": "pkg:npm/tinyglobby@0.2.17",
+      "name": "tinyglobby",
+      "version": "0.2.17",
+      "description": "A fast and minimal alternative to globby and fast-glob",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/SuperchupuDev/tinyglobby"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/to-regex-range@5.0.1",
+      "purl": "pkg:npm/to-regex-range@5.0.1",
+      "name": "to-regex-range",
+      "version": "5.0.1",
+      "description": "Pass two numbers, get a regex-compatible source string for matching ranges. Validated against more than 2.78 million test assertions.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "micromatch/to-regex-range"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/ts-interface-checker@0.1.13",
+      "purl": "pkg:npm/ts-interface-checker@0.1.13",
+      "name": "ts-interface-checker",
+      "version": "0.1.13",
+      "description": "Runtime library to validate data against TypeScript interfaces",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/gristlabs/ts-interface-checker"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/tslib@1.14.1",
+      "purl": "pkg:npm/tslib@1.14.1",
+      "name": "tslib",
+      "version": "1.14.1",
+      "description": "Runtime library for TypeScript helper functions",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "0BSD"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Microsoft/tslib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/tslib@2.8.1",
+      "purl": "pkg:npm/tslib@2.8.1",
+      "name": "tslib",
+      "version": "2.8.1",
+      "description": "Runtime library for TypeScript helper functions",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "0BSD"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Microsoft/tslib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/update-browserslist-db@1.3.2",
+      "purl": "pkg:npm/update-browserslist-db@1.3.2",
+      "name": "update-browserslist-db",
+      "version": "1.3.2",
+      "description": "CLI tool to update caniuse-lite to refresh target browsers from Browserslist config",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "browserslist/update-db"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/util-deprecate@1.0.2",
+      "purl": "pkg:npm/util-deprecate@1.0.2",
+      "name": "util-deprecate",
+      "version": "1.0.2",
+      "description": "The Node.js `util.deprecate()` function with browser support",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/TooTallNate/util-deprecate"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/zod@4.5.4",
+      "purl": "pkg:npm/zod@4.5.4",
+      "name": "zod",
+      "version": "4.5.4",
+      "description": "TypeScript-first schema declaration and validation library with static type inference",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/colinhacks/zod"
+        }
+      ]
+    }
+  ]
+}
