@@ -18,13 +18,18 @@ npm run seed         # creates a demo workspace with sample envelopes
 npm run dev          # http://localhost:4000
 ```
 
-Sign in with:
+Then open http://localhost:4000/login and press **Test sign in** — it opens the sample
+workspace with no credentials to type. Or sign in manually:
 
 | | |
 | --- | --- |
-| URL | http://localhost:4000/login |
 | Email | `owner@northwind.test` |
 | Password | `inkwell-demo-2026` |
+
+The Test sign in button is passwordless, so it is guarded: it is hidden outside
+development unless `DEMO_LOGIN=on`, hidden entirely when `DEMO_LOGIN=off`, and hidden on
+any instance where `npm run seed` has never been run. It signs in only as the fixed demo
+account and accepts no input, so it cannot be used to assume another user.
 
 No SMTP server is required. Every message the platform sends is captured in the
 in-app **Outbox**, where you can read it and open the recipient's signing link — that
@@ -108,6 +113,7 @@ Copy `.env.example` to `.env`:
 | `MAIL_FROM` | `Inkwell eSign <no-reply@inkwell.example>` | Envelope sender address |
 | `INKWELL_DATA_DIR` | `./storage` | Database and blob store location |
 | `CRON_SECRET` | *(unset)* | Shared secret for `POST /api/cron/reminders` |
+| `DEMO_LOGIN` | *(unset)* | `on` / `off`. Controls the passwordless **Test sign in** button; unset means development only |
 | `REMINDER_AFTER_HOURS` | `48` | Idle time before an automatic reminder |
 | `REMINDER_MAX` | `3` | Automatic reminders per recipient |
 

@@ -1,6 +1,6 @@
 # Software Bill of Materials
 
-Generated 2026-09-02T10:33:09.630Z by `npm run sbom` from the installed dependency tree.
+Generated 2026-09-02T19:53:35.675Z by `npm run sbom` from the installed dependency tree.
 Machine-readable CycloneDX 1.5 output: [`sbom.json`](./sbom.json).
 
 **108 packages** — 10 declared directly, 98 transitive.

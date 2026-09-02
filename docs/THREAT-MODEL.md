@@ -135,6 +135,18 @@ can authenticate them and reject replays by checking the timestamp. Requests car
 endpoint URLs are not restricted to public IP ranges, so an operator can point a webhook
 at an internal address; see §5.
 
+### T14 — Passwordless demo sign-in reaching production (A1)
+
+The **Test sign in** button authenticates as the seeded demo owner without a password.
+It is therefore disabled by default in production: `demoLogin()` refuses unless
+`DEMO_LOGIN=on` is set explicitly, refuses outright when `DEMO_LOGIN=off`, and refuses on
+any instance where the seeded account does not exist — so a deployment that never ran
+`npm run seed` can never expose it. The endpoint accepts no request body and resolves a
+fixed email, so it cannot be steered at another account. Both the button and the endpoint
+disappear together, because the page resolves availability from the same function on the
+server. *Residual:* an operator who deliberately sets `DEMO_LOGIN=on` in production grants
+anonymous owner access to that workspace; the deployment checklist calls this out.
+
 ## 4. Trust boundaries
 
 ```

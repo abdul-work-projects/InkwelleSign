@@ -13,6 +13,7 @@
 | `REMINDER_AFTER_HOURS` | `48` | Idle time before an automatic reminder |
 | `REMINDER_MAX` | `3` | Automatic reminders per recipient |
 | `NODE_ENV` | — | `production` enables `Secure` cookies |
+| `DEMO_LOGIN` | *(unset)* | `on` exposes the passwordless **Test sign in** button, `off` disables it. Unset means development only. Also requires the seeded demo account to exist. |
 
 ## Running
 
@@ -40,6 +41,7 @@ Scheduled reminders, e.g. hourly:
 - [ ] `INKWELL_DATA_DIR` on persistent, backed-up storage with restrictive permissions
 - [ ] Organisation signing keys migrated to a KMS/HSM (see the threat model, §5)
 - [ ] Rate limiting in front of `/api/auth/login` and `/api/sign/*`
+- [ ] `DEMO_LOGIN` left unset or set to `off` — set `on` only on a throwaway evaluation instance
 - [ ] `npm run sbom` clean, and the SBOM handed over with the build
 - [ ] `npm test` green in CI
 

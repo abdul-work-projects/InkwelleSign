@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { currentUser } from '@/lib/auth.js';
+import { demoLogin } from '@/lib/demo.js';
 import { ShieldCheck, PenLine, FileStack, Workflow, Webhook, FileCheck2 } from 'lucide-react';
 
 const FEATURES = [
@@ -15,6 +16,7 @@ const FEATURES = [
 export default async function Landing() {
   const user = await currentUser();
   if (user) redirect('/dashboard');
+  const demo = demoLogin();
 
   return (
     <main className="min-h-screen bg-white">
@@ -55,6 +57,15 @@ export default async function Landing() {
               Sign in
             </Link>
           </div>
+          {demo && (
+            <p className="mt-4 text-[13.5px] text-ink-500">
+              Want to look first?{' '}
+              <Link href="/login" className="text-brand-600 font-medium hover:text-brand-700 underline underline-offset-2">
+                Test sign in
+              </Link>{' '}
+              to a sample workspace — no setup, nothing to fill in.
+            </p>
+          )}
         </div>
       </section>
 

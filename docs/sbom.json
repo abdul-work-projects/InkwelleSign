@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:160dff57-bf0c-42e0-8d7c-016a4d479b1b",
+  "serialNumber": "urn:uuid:3462db33-ee1a-44f7-9052-94bf41c26d82",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-09-02T10:33:09.629Z",
+    "timestamp": "2026-09-02T19:53:35.673Z",
     "tools": [
       {
         "name": "inkwell-sbom",

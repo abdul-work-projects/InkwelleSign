@@ -3,12 +3,27 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button, Input, Spinner } from '@/components/ui.jsx';
+import { Play } from 'lucide-react';
 
-export default function LoginForm() {
+export default function LoginForm({ demo = null }) {
   const router = useRouter();
   const [state, setState] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
   const [busy, setBusy] = useState(false);
+  const [demoBusy, setDemoBusy] = useState(false);
+
+  async function testSignIn() {
+    setDemoBusy(true); setError(null);
+    const res = await fetch('/api/auth/demo', { method: 'POST' });
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      setError(data.error || 'Demo sign-in is unavailable');
+      setDemoBusy(false);
+      return;
+    }
+    router.push('/dashboard');
+    router.refresh();
+  }
 
   async function submit(e) {
     e.preventDefault();
@@ -42,6 +57,24 @@ export default function LoginForm() {
               {busy ? <Spinner /> : null} Sign in
             </Button>
           </form>
+
+          {demo && (
+            <>
+              <div className="relative my-6">
+                <div className="absolute inset-0 flex items-center"><span className="w-full border-t border-ink-200" /></div>
+                <div className="relative flex justify-center">
+                  <span className="bg-white px-3 text-[12px] text-ink-400">or take a look around</span>
+                </div>
+              </div>
+
+              <Button variant="secondary" size="lg" className="w-full" onClick={testSignIn} disabled={demoBusy}>
+                {demoBusy ? <Spinner /> : <Play size={15} />} Test sign in
+              </Button>
+              <p className="mt-2 text-[12px] text-ink-500 text-center">
+                Opens {demo.orgName} as {demo.name} — a sample workspace with documents already signed.
+              </p>
+            </>
+          )}
 
           <p className="mt-6 text-[13px] text-ink-500">
             No workspace yet? <Link href="/register" className="text-brand-600 font-medium hover:text-brand-700">Create one</Link>
