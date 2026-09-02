@@ -1,8 +1,8 @@
 import { cookies } from 'next/headers';
 import { authenticatePassword, createSession, SESSION_COOKIE, requestMeta } from '@/lib/auth.js';
-import { json, fail, readJson } from '@/lib/api.js';
+import { json, fail, readJson, withRoute } from '@/lib/api.js';
 
-export async function POST(request) {
+export const POST = withRoute(async (request) => {
   const { email, password } = await readJson(request);
   if (!email || !password) return fail('Email and password are required', 422);
   const user = authenticatePassword(email, password);
@@ -14,4 +14,4 @@ export async function POST(request) {
     path: '/', expires,
   });
   return json({ ok: true });
-}
+});

@@ -1,7 +1,7 @@
 import { currentUser } from '@/lib/auth.js';
-import { json } from '@/lib/api.js';
+import { json, withRoute } from '@/lib/api.js';
 
-export async function GET() {
+export const GET = withRoute(async () => {
   const user = await currentUser();
   return json({ user: user || null });
-}
+});

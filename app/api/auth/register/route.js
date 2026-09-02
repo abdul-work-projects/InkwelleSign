@@ -2,7 +2,7 @@ import { cookies } from 'next/headers';
 import { z } from 'zod';
 import { registerOrganization, createSession, SESSION_COOKIE } from '@/lib/auth.js';
 import { requestMeta } from '@/lib/auth.js';
-import { json, fail, readJson } from '@/lib/api.js';
+import { json, fail, readJson, withRoute } from '@/lib/api.js';
 
 const Body = z.object({
   orgName: z.string().min(2).max(80),
@@ -11,7 +11,7 @@ const Body = z.object({
   password: z.string().min(10, 'Password must be at least 10 characters').max(200),
 });
 
-export async function POST(request) {
+export const POST = withRoute(async (request) => {
   const parsed = Body.safeParse(await readJson(request));
   if (!parsed.success) return fail(parsed.error.issues[0].message, 422);
   try {
@@ -26,4 +26,4 @@ export async function POST(request) {
   } catch (err) {
     return fail(err.message, 409);
   }
-}
+});
