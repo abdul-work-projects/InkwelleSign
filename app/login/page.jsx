@@ -1,5 +1,6 @@
 import LoginForm from './LoginForm.jsx';
 import { demoLogin } from '@/lib/demo.js';
+import { ensureDemoSeeded } from '@/lib/demo-seed.js';
 
 export const metadata = { title: 'Sign in' };
 
@@ -8,7 +9,8 @@ export const metadata = { title: 'Sign in' };
 // button could never appear on a deployed instance no matter how it was configured.
 export const dynamic = 'force-dynamic';
 
-export default function Page() {
+export default async function Page() {
+  await ensureDemoSeeded();
   const demo = demoLogin();
   return (
     <LoginForm

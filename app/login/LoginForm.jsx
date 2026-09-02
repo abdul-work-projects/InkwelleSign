@@ -1,12 +1,10 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { Button, Input, Spinner } from '@/components/ui.jsx';
 import { Play } from 'lucide-react';
 
 export default function LoginForm({ demo = null }) {
-  const router = useRouter();
   const [state, setState] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
   const [busy, setBusy] = useState(false);
@@ -21,8 +19,10 @@ export default function LoginForm({ demo = null }) {
       setDemoBusy(false);
       return;
     }
-    router.push('/dashboard');
-    router.refresh();
+    // A full navigation rather than router.push: signing in changes what the server
+    // renders for every route, and calling router.refresh() alongside a push races the
+    // pending navigation and can leave the user on this page.
+    window.location.assign('/dashboard');
   }
 
   async function submit(e) {
@@ -33,8 +33,10 @@ export default function LoginForm({ demo = null }) {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) { setError(data.error || 'Sign in failed'); setBusy(false); return; }
-    router.push('/dashboard');
-    router.refresh();
+    // A full navigation rather than router.push: signing in changes what the server
+    // renders for every route, and calling router.refresh() alongside a push races the
+    // pending navigation and can leave the user on this page.
+    window.location.assign('/dashboard');
   }
 
   return (

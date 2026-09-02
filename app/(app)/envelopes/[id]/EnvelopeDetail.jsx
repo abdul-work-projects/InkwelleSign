@@ -8,7 +8,7 @@ import { Card, CardHeader, Button, StatusBadge, Spinner, Modal, Mono, Toast, Tex
 import PdfDocument from '@/components/PdfDocument.jsx';
 import {
   Download, Bell, Ban, ShieldCheck, ShieldAlert, FileCheck2, Mail,
-  Link2, Copy, Fingerprint, RefreshCw, ChevronRight,
+  Link2, Copy, Fingerprint, RefreshCw, ChevronRight, PenLine,
 } from 'lucide-react';
 
 function Row({ label, children, mono }) {
@@ -24,6 +24,7 @@ export default function EnvelopeDetail({ id }) {
   const [data, setData] = useState(null);
   const [audit, setAudit] = useState(null);
   const [emails, setEmails] = useState([]);
+  const [mailCaptured, setMailCaptured] = useState(false);
   const [verification, setVerification] = useState(null);
   const [toast, setToast] = useState(null);
   const [voidOpen, setVoidOpen] = useState(false);
@@ -41,6 +42,7 @@ export default function EnvelopeDetail({ id }) {
       ]);
       setAudit(a);
       setEmails(o.messages);
+      setMailCaptured(!o.smtpConfigured);
     } catch (e) {
       setToast({ type: 'error', message: e.message });
     }
@@ -75,6 +77,18 @@ export default function EnvelopeDetail({ id }) {
       setVerification(await api(`/envelopes/${id}/verify`));
     } catch (e) { setToast({ type: 'error', message: e.message }); }
     finally { setBusy(false); }
+  }
+
+  /**
+   * The signing link for a recipient, recovered from the invitation that was generated
+   * for them. Tokens are stored hashed, so this is the only place the raw link survives.
+   * Offered only when mail is being captured rather than delivered — otherwise the
+   * recipient has it in their inbox and the sender has no business opening it.
+   */
+  function signingLinkFor(recipientId) {
+    if (!mailCaptured) return null;
+    const message = emails.find((m) => m.recipient_id === recipientId && /\/sign\//.test(m.text));
+    return message ? (message.text.match(/https?:\/\/\S+\/sign\/\S+/) || [])[0] : null;
   }
 
   if (!data) return <div className="p-16 flex justify-center text-ink-400"><Spinner size={22} /></div>;
@@ -134,6 +148,13 @@ export default function EnvelopeDetail({ id }) {
               <Card>
                 <CardHeader title="Recipients"
                   description={envelope.ordered ? 'Sequential routing — each step is invited when the previous completes.' : 'Parallel routing — everyone was invited at once.'} />
+                {mailCaptured && live && (
+                  <p className="px-5 pt-3 -mb-1 text-[12.5px] text-ink-500">
+                    Email is not being delivered from this instance, so each recipient's private
+                    signing link is available here — <span className="text-ink-700">Open to sign</span> shows
+                    exactly what they would see.
+                  </p>
+                )}
                 <ul className="divide-y divide-ink-200/60">
                   {recipients.map((r) => {
                     const isActive = activeRecipientIds.includes(r.id);
@@ -169,9 +190,16 @@ export default function EnvelopeDetail({ id }) {
                           {r.reminder_count > 0 && <div>{r.reminder_count} reminder{r.reminder_count === 1 ? '' : 's'}</div>}
                         </div>
                         {isActive && live && (
-                          <Button size="sm" variant="secondary" onClick={() => remind(r.id)} disabled={busy}>
-                            <Bell size={13} /> Remind
-                          </Button>
+                          <div className="flex items-center gap-1.5">
+                            {signingLinkFor(r.id) && (
+                              <Button size="sm" as="a" href={signingLinkFor(r.id)} target="_blank" rel="noreferrer">
+                                <PenLine size={13} /> Open to sign
+                              </Button>
+                            )}
+                            <Button size="sm" variant="secondary" onClick={() => remind(r.id)} disabled={busy}>
+                              <Bell size={13} /> Remind
+                            </Button>
+                          </div>
                         )}
                       </li>
                     );

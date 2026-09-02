@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { currentUser } from '@/lib/auth.js';
 import { demoLogin } from '@/lib/demo.js';
+import { ensureDemoSeeded } from '@/lib/demo-seed.js';
 import { ShieldCheck, PenLine, FileStack, Workflow, Webhook, FileCheck2 } from 'lucide-react';
 
 const FEATURES = [
@@ -14,6 +15,7 @@ const FEATURES = [
 ];
 
 export default async function Landing() {
+  await ensureDemoSeeded();
   const user = await currentUser();
   if (user) redirect('/dashboard');
   const demo = demoLogin();

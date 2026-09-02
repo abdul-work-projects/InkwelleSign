@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { api, relativeTime, EVENT_LABELS } from '@/lib/client.js';
 import { PageHeader } from '@/components/Shell.jsx';
 import { Card, CardHeader, Button, EmptyState, Spinner, StatusBadge } from '@/components/ui.jsx';
-import { Send, Clock, CheckCircle2, FileText, Plus, Inbox, ArrowUpRight } from 'lucide-react';
+import { Send, Clock, CheckCircle2, FileText, Plus, Inbox, ArrowUpRight, PenLine } from 'lucide-react';
 
 function Stat({ label, value, sub, icon: Icon, tone = 'default' }) {
   const tones = {
@@ -36,7 +36,7 @@ export default function DashboardView() {
   if (error) return <div className="p-8 text-sm text-red-600">{error}</div>;
   if (!data) return <div className="p-16 flex justify-center text-ink-400"><Spinner size={22} /></div>;
 
-  const { counts, awaiting, recent, documents, templates, avgCompletionHours } = data;
+  const { counts, awaiting, recent, documents, templates, avgCompletionHours, mailCaptured } = data;
 
   return (
     <>
@@ -64,7 +64,9 @@ export default function DashboardView() {
           <Card className="lg:col-span-3">
             <CardHeader
               title="Waiting on others"
-              description="Recipients whose turn it is right now."
+              description={mailCaptured
+                ? "Recipients whose turn it is. Open to sign shows what they would see."
+                : "Recipients whose turn it is right now."}
               action={<Button as={Link} href="/envelopes" size="sm" variant="ghost">View all <ArrowUpRight size={14} /></Button>}
             />
             {awaiting.length === 0 ? (
@@ -72,8 +74,8 @@ export default function DashboardView() {
             ) : (
               <ul className="divide-y divide-ink-200/70">
                 {awaiting.map((a, i) => (
-                  <li key={i}>
-                    <Link href={`/envelopes/${a.envelope_id}`} className="flex items-center gap-3 px-5 py-3 hover:bg-ink-50/70 transition-colors">
+                  <li key={i} className="flex items-center gap-3 px-5 py-3 hover:bg-ink-50/70 transition-colors">
+                    <Link href={`/envelopes/${a.envelope_id}`} className="flex items-center gap-3 min-w-0 flex-1">
                       <div className="w-8 h-8 rounded-lg bg-ink-100 text-ink-600 text-[11px] font-semibold flex items-center justify-center shrink-0">
                         {a.name.split(/\s+/).map((s) => s[0]).slice(0, 2).join('').toUpperCase()}
                       </div>
@@ -81,11 +83,16 @@ export default function DashboardView() {
                         <p className="text-[13.5px] font-medium text-ink-900 truncate">{a.title}</p>
                         <p className="text-[12px] text-ink-500 truncate">{a.name} · {a.email}</p>
                       </div>
-                      <div className="text-right shrink-0">
-                        <StatusBadge status={a.status} />
-                        <p className="mt-1 text-[11.5px] text-ink-400">sent {relativeTime(a.sent_at)}</p>
-                      </div>
                     </Link>
+                    <div className="text-right shrink-0">
+                      <StatusBadge status={a.status} />
+                      <p className="mt-1 text-[11.5px] text-ink-400">sent {relativeTime(a.sent_at)}</p>
+                    </div>
+                    {a.signingUrl && (
+                      <Button size="sm" as="a" href={a.signingUrl} target="_blank" rel="noreferrer" className="shrink-0">
+                        <PenLine size={13} /> Open to sign
+                      </Button>
+                    )}
                   </li>
                 ))}
               </ul>

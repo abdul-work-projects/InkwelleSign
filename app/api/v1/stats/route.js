@@ -15,10 +15,25 @@ export const GET = withAuth(async ({ orgId }) => {
   const documents = db.prepare('SELECT COUNT(*) AS n FROM documents WHERE org_id = ?').get(orgId);
   const templates = db.prepare('SELECT COUNT(*) AS n FROM templates WHERE org_id = ?').get(orgId);
   const awaiting = db.prepare(`
-    SELECT r.name, r.email, r.status, e.id AS envelope_id, e.title, e.sent_at
+    SELECT r.id, r.name, r.email, r.status, e.id AS envelope_id, e.title, e.sent_at
     FROM recipients r JOIN envelopes e ON e.id = r.envelope_id
     WHERE e.org_id = ? AND e.status IN ('sent','in_progress') AND r.status IN ('sent','viewed')
     ORDER BY e.sent_at ASC LIMIT 8`).all(orgId);
+
+  // When mail is captured rather than delivered, the invitation is the only surviving
+  // copy of the raw signing link — tokens themselves are stored hashed. Surfacing it lets
+  // the sender open the recipient's session; withheld once real delivery is configured.
+  const mailCaptured = !process.env.SMTP_URL;
+  if (mailCaptured) {
+    const findInvite = db.prepare(
+      `SELECT text FROM email_outbox WHERE recipient_id = ? AND text LIKE '%/sign/%'
+       ORDER BY created_at DESC, rowid DESC LIMIT 1`
+    );
+    for (const row of awaiting) {
+      const message = findInvite.get(row.id);
+      row.signingUrl = message ? (message.text.match(/https?:\/\/\S+\/sign\/\S+/) || [])[0] || null : null;
+    }
+  }
 
   const recent = db.prepare(`
     SELECT a.event_type, a.created_at, a.actor_label, a.envelope_id, e.title
@@ -33,6 +48,7 @@ export const GET = withAuth(async ({ orgId }) => {
     : null;
 
   return json({
+    mailCaptured,
     counts: {
       total: counts.total || 0, draft: counts.draft || 0, pending: counts.pending || 0,
       completed: counts.completed || 0, declined: counts.declined || 0, voided: counts.voided || 0,
