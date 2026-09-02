@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      # `npm ci` installs strictly from package-lock.json and fails on drift, so a
+      # dependency that is present locally but undeclared cannot slip through.
+      - name: Install
+        run: npm ci
+
+      - name: Verify the manifest is complete
+        run: |
+          test -d node_modules/tailwindcss || { echo "tailwindcss missing from the manifest"; exit 1; }
+          test -d node_modules/postcss     || { echo "postcss missing from the manifest";     exit 1; }
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      # Fails on any copyleft or source-available licence entering the tree.
+      - name: Licence policy
+        run: npm run sbom
