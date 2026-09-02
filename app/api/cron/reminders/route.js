@@ -1,5 +1,5 @@
 import { db } from '@/lib/db.js';
-import { json, fail } from '@/lib/api.js';
+import { json, fail, withRoute } from '@/lib/api.js';
 import { headers } from 'next/headers';
 import { getEnvelope, getRecipients, activeRecipients, remindRecipient } from '@/lib/envelopes.js';
 
@@ -7,7 +7,7 @@ import { getEnvelope, getRecipients, activeRecipients, remindRecipient } from '@
  * Scheduled reminder sweep. Protect with CRON_SECRET in production:
  *   curl -H "x-cron-secret: $CRON_SECRET" https://host/api/cron/reminders
  */
-export async function POST() {
+export const POST = withRoute(async () => {
   const secret = process.env.CRON_SECRET;
   if (secret) {
     const h = await headers();
@@ -41,6 +41,6 @@ export async function POST() {
     }
   }
   return json({ reminded: sent, scanned: envelopes.length });
-}
+});
 
 export const GET = POST;
