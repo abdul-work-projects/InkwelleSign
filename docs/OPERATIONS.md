@@ -15,6 +15,7 @@
 | `NODE_ENV` | — | `production` enables `Secure` cookies |
 | `DEMO_LOGIN` | *(unset)* | `on` exposes the passwordless **Test sign in** button, `off` disables it. Unset means development only, or wherever `DEMO_MODE` is active. |
 | `DEMO_MODE` | auto on Vercel | `1` runs the instance from a temporary directory, seeded on every cold start. `0` forces it off. See below. |
+| `DEMO_SECRET` | `inkwell-demo-instance` | Signs demo session cookies and signing tokens. Every function must agree on it; not a security boundary, since demo mode has none. |
 
 ## Running
 
@@ -70,10 +71,22 @@ that provides no writable disk. The database and documents go to the instance's 
 directory, and `instrumentation.js` seeds the sample workspace on each cold start, so
 every instance serves a populated app rather than an empty one.
 
+On Vercel each route becomes its own function with its own temporary directory, so
+"one instance" is not even one deployment — pages and API routes do not share storage.
+Demo mode is built for that:
+
+- Seeded ids come from a deterministic counter, so every function builds an identical
+  workspace and a link produced by one resolves in another
+- Signing tokens are derived from the recipient rather than random, for the same reason
+- Sessions are carried in a signed cookie and verified without a database lookup, since
+  a session row written by the API function is invisible to the page function
+
 What this means in practice:
 
-- Anything a visitor creates survives only while that instance stays warm. A cold start,
-  a redeploy, or a request routed to a different instance returns the sample data.
+- The seeded workspace is reliable everywhere: sign in, browse envelopes, inspect the
+  audit trail, open a signing link, download the executed PDF and certificate.
+- Anything a visitor *creates* survives only while that function instance stays warm. A
+  cold start, a redeploy, or a request served by another function returns the sample data.
 - Every page carries a banner saying so, and the passwordless **Test sign in** button is
   enabled, since an ephemeral instance has no lasting accounts.
 - Signing links use `VERCEL_PROJECT_PRODUCTION_URL` when `APP_URL` is unset, so they

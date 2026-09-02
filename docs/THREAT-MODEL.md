@@ -147,6 +147,20 @@ disappear together, because the page resolves availability from the same functio
 server. *Residual:* an operator who deliberately sets `DEMO_LOGIN=on` in production grants
 anonymous owner access to that workspace; the deployment checklist calls this out.
 
+### T15 — Demo mode weakens session and token handling (A1)
+
+A demo instance has no shared storage, so sessions move into a signed cookie and signing
+tokens are derived from the recipient id rather than random. Both are verified by HMAC,
+so they cannot be forged without `DEMO_SECRET`, but they lose two properties the real
+build has: a session cannot be revoked server-side, and a signing token is predictable to
+anyone holding the secret. `DEMO_SECRET` also has a published default.
+
+This is confined to demo mode: with `DEMO_MODE` unset, sessions are database-backed and
+signing tokens are 256 bits of randomness, exactly as before. Demo mode exists so a
+reviewer can click through a hosted URL, and every page states that the data is sample
+data. It must never carry real documents — which is also why demo instances discard
+everything on restart.
+
 ## 4. Trust boundaries
 
 ```

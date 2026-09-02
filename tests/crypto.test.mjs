@@ -55,3 +55,33 @@ test('webhook HMAC matches the documented construction', () => {
   assert.equal(sig, hmacSha256('whsec_abc', '1700000000.{"a":1}'));
   assert.notEqual(sig, hmacSha256('whsec_abd', '1700000000.{"a":1}'));
 });
+
+// ---------------------------------------------------------------------------
+// Stateless demo sessions: verified by signature so any instance accepts them.
+const { issueStatelessSession, readStatelessSession } = await import('../lib/session-token.js');
+const SECRET = 'test-secret';
+
+test('a stateless session round-trips on an instance that never issued it', () => {
+  const expires = Date.now() + 60_000;
+  const token = issueStatelessSession(SECRET, 'usr_demo000001', expires);
+  // No shared state: verification uses only the secret and the token itself.
+  assert.equal(readStatelessSession(SECRET, token), 'usr_demo000001');
+});
+
+test('stateless sessions reject tampering, forgery, expiry and nonsense', () => {
+  const token = issueStatelessSession(SECRET, 'usr_demo000001', Date.now() + 60_000);
+  assert.equal(readStatelessSession(SECRET, `${token.slice(0, -4)}aaaa`), null, 'altered signature');
+  assert.equal(readStatelessSession('other-secret', token), null, 'wrong secret');
+  assert.equal(readStatelessSession(SECRET, issueStatelessSession(SECRET, 'usr_x', Date.now() - 1)), null, 'expired');
+  for (const bad of ['', null, undefined, 'not-a-token', 'd.only-two', 'x.y.z']) {
+    assert.equal(readStatelessSession(SECRET, bad), null, `rejects ${String(bad)}`);
+  }
+});
+
+test('a stateless session cannot be re-pointed at another user', () => {
+  const token = issueStatelessSession(SECRET, 'usr_demo000001', Date.now() + 60_000);
+  const [, payload, signature] = token.split('.');
+  const swapped = Buffer.from('usr_attacker|' + (Date.now() + 60_000)).toString('base64url');
+  assert.equal(readStatelessSession(SECRET, `d.${swapped}.${signature}`), null);
+  assert.equal(readStatelessSession(SECRET, `d.${payload}.${signature}`), 'usr_demo000001');
+});
