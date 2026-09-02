@@ -61,6 +61,10 @@ recipient-level status tracking.
 progressive save, required-field validation, an electronic-record disclosure with
 explicit consent capture, and the option to decline with a reason.
 
+**Getting the document** — the sender downloads the executed PDF and certificate from
+the envelope record; each signer can download their own copy from their signing link once
+every party has finished.
+
 **Evidence** — every action is appended to a per-envelope SHA-256 hash chain. On
 completion the platform flattens all values into the PDF, generates a certificate of
 completion, and signs `{envelope id, audit head hash, executed document digest}` with

@@ -23,10 +23,16 @@ const REASONS = {
 export const GET = withPublic(async ({ params, meta }) => {
   const resolved = resolveSigningToken(params.token);
   if (resolved.error) {
+    // A signer returning to their link after completion is entitled to a copy, so tell
+    // the page whether one is ready rather than leaving them at a dead end.
+    const finished = resolved.envelope?.status === 'completed'
+      && resolved.recipient?.status === 'completed'
+      && !!resolved.envelope?.final_version_id;
     return json({
       error: resolved.error,
       message: REASONS[resolved.error] || REASONS.invalid,
       envelopeTitle: resolved.envelope?.title || null,
+      canDownload: finished,
     }, { status: resolved.error === 'invalid' ? 404 : 410 });
   }
 

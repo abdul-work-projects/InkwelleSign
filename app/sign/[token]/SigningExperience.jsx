@@ -7,7 +7,7 @@ import { Button, Input, Modal, Spinner, Textarea, Toast } from '@/components/ui.
 import { FIELD_META } from '@/components/FieldChip.jsx';
 import {
   CheckCircle2, ChevronDown, ChevronRight, Lock, PenLine, ShieldCheck,
-  XCircle, AlertTriangle, ArrowDown, FileText,
+  XCircle, AlertTriangle, ArrowDown, Download,
 } from 'lucide-react';
 
 const todayLabel = () => new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
@@ -225,7 +225,21 @@ export default function SigningExperience({ token }) {
         icon={alreadySigned ? <CheckCircle2 size={22} /> : <AlertTriangle size={22} />}
         title={alreadySigned ? 'Already signed' : 'This link is not available'}
         body={state.data?.message || 'The signing link could not be opened.'}
-      />
+      >
+        {state.data?.canDownload && (
+          <div className="mt-5 space-y-2">
+            <Button as="a" href={`/api/sign/${token}/download?doc=combined`} size="lg" className="w-full">
+              <Download size={16} /> Download signed document
+            </Button>
+            <a
+              href={`/api/sign/${token}/download?doc=certificate`}
+              className="block text-[12.5px] text-ink-500 hover:text-brand-600"
+            >
+              Certificate of completion only
+            </a>
+          </div>
+        )}
+      </Outcome>
     );
   }
 
@@ -247,9 +261,22 @@ export default function SigningExperience({ token }) {
         icon={<CheckCircle2 size={22} />}
         title="Signing complete"
         body={state.completedAll
-          ? 'All parties have now signed. A copy of the executed document and certificate of completion is on its way to your inbox.'
-          : 'Thank you. The next recipient has been notified, and you will receive the completed document by email.'}
+          ? 'All parties have now signed. Your copy is ready below, and is also on its way to your inbox.'
+          : 'Thank you. The next recipient has been notified, and you will receive the completed document once everyone has signed.'}
       >
+        {state.completedAll && (
+          <div className="mt-5 space-y-2">
+            <Button as="a" href={`/api/sign/${token}/download?doc=combined`} size="lg" className="w-full">
+              <Download size={16} /> Download signed document
+            </Button>
+            <a
+              href={`/api/sign/${token}/download?doc=certificate`}
+              className="block text-[12.5px] text-ink-500 hover:text-brand-600"
+            >
+              Certificate of completion only
+            </a>
+          </div>
+        )}
         <div className="mt-5 flex items-start gap-2 text-left rounded-lg bg-ink-50 border border-ink-200 px-3 py-2.5 text-[12px] text-ink-600">
           <ShieldCheck size={14} className="text-emerald-600 mt-0.5 shrink-0" />
           Your signature and the time you signed have been recorded, and cannot be changed afterwards.

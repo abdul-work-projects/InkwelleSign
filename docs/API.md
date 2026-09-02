@@ -175,6 +175,7 @@ integration API, documented for completeness.
 | `PUT /api/sign/:token/fields` | Incremental save; writes outside this signer's fields are ignored |
 | `POST /api/sign/:token/complete` | Requires `{ "consent": true }`; validates required fields |
 | `POST /api/sign/:token/decline` | Body `{ "reason": "..." }` |
+| `GET /api/sign/:token/download` | The signer's own copy once the envelope is complete. `?doc=combined` (default), `executed` or `certificate`. Refused with 409 while signing is outstanding, and 403 for a recipient who has not signed. |
 
 ## Scheduled jobs
 
