@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import clsx from 'clsx';
 import {
   LayoutDashboard, FileText, Send, LayoutTemplate, ScrollText,
-  Settings, Mail, LogOut, Menu, X, ShieldCheck,
+  Settings, Mail, LogOut, Menu, X, ShieldCheck, Info,
 } from 'lucide-react';
 
 const NAV = [
@@ -18,7 +18,7 @@ const NAV = [
   { href: '/settings', label: 'Settings', icon: Settings },
 ];
 
-export default function Shell({ user, children }) {
+export default function Shell({ user, demoMode = false, children }) {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -99,8 +99,25 @@ export default function Shell({ user, children }) {
           <span className="text-[15px] font-semibold text-ink-900">Inkwell<span className="text-brand-600">eSign</span></span>
           <div className="w-7 h-7 rounded-lg bg-ink-900 text-white text-[10.5px] font-semibold flex items-center justify-center">{initials}</div>
         </header>
+        {demoMode && <DemoNotice />}
         <main className="flex-1 min-w-0">{children}</main>
       </div>
+    </div>
+  );
+}
+
+/** Shown on instances with no persistent storage, so nobody mistakes this for real data. */
+function DemoNotice() {
+  return (
+    <div className="bg-amber-50 border-b border-amber-200 px-5 sm:px-8 py-2">
+      <p className="text-[12.5px] text-amber-900 flex items-start gap-2">
+        <Info size={14} className="mt-0.5 shrink-0" />
+        <span>
+          <strong className="font-medium">Demo instance.</strong> This deployment has no
+          persistent storage, so it runs on sample data and anything you create here is
+          cleared when the server restarts. Run it locally for a workspace that keeps its data.
+        </span>
+      </p>
     </div>
   );
 }

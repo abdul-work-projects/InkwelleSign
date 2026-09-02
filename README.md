@@ -113,6 +113,7 @@ Copy `.env.example` to `.env`:
 | `MAIL_FROM` | `Inkwell eSign <no-reply@inkwell.example>` | Envelope sender address |
 | `INKWELL_DATA_DIR` | `./storage` | Database and blob store location |
 | `CRON_SECRET` | *(unset)* | Shared secret for `POST /api/cron/reminders` |
+| `DEMO_MODE` | auto on Vercel | Runs from a temporary directory, seeded on each cold start, for hosts with no persistent disk. Data does not survive. See `docs/OPERATIONS.md`. |
 | `DEMO_LOGIN` | *(unset)* | `on` / `off`. Controls the passwordless **Test sign in** button; unset means development only |
 | `REMINDER_AFTER_HOURS` | `48` | Idle time before an automatic reminder |
 | `REMINDER_MAX` | `3` | Automatic reminders per recipient |

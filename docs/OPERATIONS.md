@@ -13,7 +13,8 @@
 | `REMINDER_AFTER_HOURS` | `48` | Idle time before an automatic reminder |
 | `REMINDER_MAX` | `3` | Automatic reminders per recipient |
 | `NODE_ENV` | — | `production` enables `Secure` cookies |
-| `DEMO_LOGIN` | *(unset)* | `on` exposes the passwordless **Test sign in** button, `off` disables it. Unset means development only. Also requires the seeded demo account to exist. |
+| `DEMO_LOGIN` | *(unset)* | `on` exposes the passwordless **Test sign in** button, `off` disables it. Unset means development only, or wherever `DEMO_MODE` is active. |
+| `DEMO_MODE` | auto on Vercel | `1` runs the instance from a temporary directory, seeded on every cold start. `0` forces it off. See below. |
 
 ## Running
 
@@ -61,6 +62,26 @@ Seed manually instead:
 ```bash
 fly ssh console -C "node scripts/seed.mjs"
 ```
+
+## Demo mode (no persistent storage)
+
+Set `DEMO_MODE=1` — it is on automatically wherever `VERCEL` is set — to run on a host
+that provides no writable disk. The database and documents go to the instance's temporary
+directory, and `instrumentation.js` seeds the sample workspace on each cold start, so
+every instance serves a populated app rather than an empty one.
+
+What this means in practice:
+
+- Anything a visitor creates survives only while that instance stays warm. A cold start,
+  a redeploy, or a request routed to a different instance returns the sample data.
+- Every page carries a banner saying so, and the passwordless **Test sign in** button is
+  enabled, since an ephemeral instance has no lasting accounts.
+- Signing links use `VERCEL_PROJECT_PRODUCTION_URL` when `APP_URL` is unset, so they
+  resolve to the deployment rather than to localhost.
+
+It exists to let a reviewer click through a live URL. **It is not a deployment option for
+real documents** — anything signed on it can vanish. For that, run on a host with a
+persistent volume, or complete the managed-database migration in `ARCHITECTURE.md` §6.
 
 ## Pre-production checklist
 
