@@ -32,6 +32,36 @@ Scheduled reminders, e.g. hourly:
 0 * * * * curl -fsS -X POST -H "x-cron-secret: $CRON_SECRET" https://your-host/api/cron/reminders
 ```
 
+## Deploying
+
+The application keeps its database and every stored document on disk, so it needs a host
+that provides a **persistent volume**. Serverless platforms (Vercel, Lambda, Cloudflare
+Workers) do not, and the app will refuse to start on one with an explanatory error.
+
+A `Dockerfile` is included. Mount a volume at `/data` and set `INKWELL_DATA_DIR=/data`.
+
+```bash
+# Fly.io — fly.toml declares the volume and the health check
+fly launch --no-deploy
+fly volumes create inkwell_data --size 1
+fly secrets set APP_URL=https://<your-app>.fly.dev
+fly deploy
+
+# Render — render.yaml declares the disk
+# (a persistent disk requires a paid instance type)
+```
+
+`SEED_ON_START=1` populates the demo workspace on first boot only — it checks for an
+existing organisation and does nothing if one is present, so a redeploy never overwrites
+real data. Pair it with `DEMO_LOGIN=on` to expose the passwordless **Test sign in**
+button. Remove both for a real deployment.
+
+Seed manually instead:
+
+```bash
+fly ssh console -C "node scripts/seed.mjs"
+```
+
 ## Pre-production checklist
 
 - [ ] `APP_URL` set to the public HTTPS origin

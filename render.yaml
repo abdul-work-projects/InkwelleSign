@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: inkwell-esign
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter          # a persistent disk requires a paid instance type
+    healthCheckPath: /login
+    disk:
+      name: inkwell-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: INKWELL_DATA_DIR
+        value: /data
+      - key: SEED_ON_START   # demo data on first boot; remove for production
+        value: "1"
+      - key: DEMO_LOGIN      # passwordless Test sign in; remove for production
+        value: "on"
+      - key: APP_URL         # set to the deployed URL so signing links resolve
+        sync: false

@@ -3,9 +3,12 @@ import { demoLogin } from '@/lib/demo.js';
 
 export const metadata = { title: 'Sign in' };
 
+// Demo availability depends on runtime configuration and on whether the database has
+// been seeded. Prerendering this page would bake the answer in at build time, so the
+// button could never appear on a deployed instance no matter how it was configured.
+export const dynamic = 'force-dynamic';
+
 export default function Page() {
-  // Resolved on the server so the button never flashes in and out on instances
-  // where demo sign-in is unavailable.
   const demo = demoLogin();
   return (
     <LoginForm
